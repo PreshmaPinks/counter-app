@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [displayVal, setDisplayVal]=useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="counter-container">
+      <h5>Counter App</h5>
+      <div className='display'>{displayVal}</div>
+      <div>
+        <button onClick={()=>{setDisplayVal(displayVal+1)}}>+</button>
+        <button disabled={displayVal===0} onClick={()=>{setDisplayVal(displayVal-1)}}>-</button>
+        <button disabled={displayVal===0} onClick={()=>{setDisplayVal(0)}}>Reset</button>
+      </div>
     </div>
-  );
+    </div>
+  );  
 }
 
 export default App;
